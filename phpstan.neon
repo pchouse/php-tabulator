@@ -1,0 +1,13 @@
+parameters:
+	level: 8
+	checkMissingIterableValueType: false
+	checkGenericClassInNonGenericObjectType: false
+	checkUninitializedProperties: false
+	checkMissingCallableSignature: true
+	paths:
+		- src
+		- test
+	bootstrapFiles:
+		- test/bootstrap.php
+	excludePaths:
+		- test/bootstrap.php

@@ -1,0 +1,22 @@
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.3/phpunit.xsd"
+         backupGlobals="true"
+         colors="true"
+         failOnRisky="true"
+         processIsolation="false"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         stopOnRisky="false"
+         timeoutForSmallTests="1"
+         timeoutForMediumTests="10"
+         timeoutForLargeTests="60"
+         bootstrap="test/bootstrap.php">
+    <php>
+        <ini name="display_errors" value="Off"/>
+        <ini name="display_startup_errors" value="Off"/>
+        <ini name="memory_limit" value="-1"/>
+    </php>
+</phpunit>
+

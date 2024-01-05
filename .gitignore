@@ -1,0 +1,4 @@
+vendor/*
+.php*
+.idea
+node_modules/*
