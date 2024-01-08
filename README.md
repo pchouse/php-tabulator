@@ -7,7 +7,7 @@
 ####  Install 
 
 ```bash 
-composer require pchouse/tabulator
+composer require pchouse/php-tabulator
 ``` 
 This library is to generate the json options of Tabulator
 using metadata declared in the PHP object class, 
