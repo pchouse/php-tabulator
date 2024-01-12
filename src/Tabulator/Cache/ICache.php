@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace PChouse\Cache;
+namespace PChouse\Tabulator\Cache;
 
 /**
  * Filesystem cache, best performance when using Opcache
@@ -19,13 +19,13 @@ interface ICache
     public function getFromCache(\ReflectionClass $reflectionClass): string|null;
 
     /**
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function putInCache(\ReflectionClass $reflectionClass, string $json): void;
 
     /**
      * @return void
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function clearCache(): void;
 }

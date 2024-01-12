@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace PChouse\Cache;
+namespace PChouse\Tabulator\Cache;
 
 use PChouse\Resources\Tabulator;
 use PHPUnit\Framework\TestCase;
@@ -12,7 +12,7 @@ class CacheTest extends TestCase
     /**
      * @test
      * @return void
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function test(): void
     {

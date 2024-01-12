@@ -20,6 +20,7 @@ class InputParams extends SharedEditorParams
      * @param string|\PChouse\Tabulator\Undefined|null $maskWildcardChar
      * @param bool|\PChouse\Tabulator\Undefined|null $search             Changes input type to 'search' and shows an 'X'
      *                                                                   clear button to clear the cell value easily.
+     * phpcs:ignore
      * @param bool|\PChouse\Tabulator\Undefined|null $selectContents     When the editor is loaded select its text content
      */
     public function __construct(
@@ -30,8 +31,7 @@ class InputParams extends SharedEditorParams
         string|Undefined|null       $maskWildcardChar = Undefined::UNDEFINED,
         private bool|Undefined|null $search = Undefined::UNDEFINED,
         private bool|Undefined|null $selectContents = Undefined::UNDEFINED,
-    )
-    {
+    ) {
         parent::__construct($mask, $maskAutoFill, $maskLetterChar, $maskNumberChar, $maskWildcardChar);
     }
 

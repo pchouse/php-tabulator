@@ -2,25 +2,23 @@
 require_once "../../../vendor/autoload.php";
 
 try {
+    \PChouse\Tabulator\Config\Config::instance()->getCache()?->clearCache();
 
 
-	\PChouse\Config\Config::instance()->getCache()?->clearCache();
+    $options = \PChouse\Tabulator\Options::parse(
+        new \ReflectionClass(\PChouse\Resources\Tabulator::class),
+        new \PChouse\Resources\Translator()
+    );
 
+    if ($options instanceof \PChouse\Tabulator\Options) {
+        // Set options programmatically
+        // $options->set????
+    }
 
-	$options = \PChouse\Tabulator\Options::parse(
-	new \ReflectionClass(\PChouse\Resources\Tabulator::class),
-	new \PChouse\Resources\Translator()
-	);
+    $json = $options->toJson();
 
-	if ($options instanceof \PChouse\Tabulator\Options) {
-		// Set options programmatically
-		// $options->set????
-	}
-
-	$json = $options->toJson();
-
-	\header("Content-Type: application/json; charset=UTF-8");
-	echo $json;
+    \header("Content-Type: application/json; charset=UTF-8");
+    echo $json;
 } catch (\Throwable $e) {
-	echo $e->getMessage();
+    echo $e->getMessage();
 }

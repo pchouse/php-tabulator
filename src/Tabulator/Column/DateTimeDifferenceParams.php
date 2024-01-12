@@ -25,8 +25,7 @@ class DateTimeDifferenceParams extends ABase
         private bool|Undefined                  $humanize = Undefined::UNDEFINED,
         private DateTimeDiffUnit|Undefined|null $unit = Undefined::UNDEFINED,
         private bool|Undefined                  $suffix = Undefined::UNDEFINED,
-    )
-    {
+    ) {
     }
 
     /**

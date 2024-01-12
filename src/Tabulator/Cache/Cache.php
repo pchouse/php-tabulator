@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace PChouse\Cache;
+namespace PChouse\Tabulator\Cache;
 
 /**
  * Filesystem cache, best performance when using Opcache
@@ -17,7 +17,7 @@ class Cache implements ICache
     }
 
     /**
-     * @return \PChouse\Cache\ICache
+     * @return \PChouse\Tabulator\Cache\ICache
      */
     public static function instance(): ICache
     {
@@ -33,7 +33,7 @@ class Cache implements ICache
      * @param \ReflectionClass $reflectionClass
      *
      * @return string
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function cacheKey(\ReflectionClass $reflectionClass): string
     {
@@ -54,7 +54,7 @@ class Cache implements ICache
      * @param \ReflectionClass $reflectionClass
      *
      * @return string
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function cacheFileName(\ReflectionClass $reflectionClass): string
     {
@@ -72,7 +72,7 @@ class Cache implements ICache
      * @param \ReflectionClass $reflectionClass
      *
      * @return bool
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function cacheExist(\ReflectionClass $reflectionClass): bool
     {
@@ -85,7 +85,7 @@ class Cache implements ICache
      * @param \ReflectionClass $reflectionClass
      *
      * @return void
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function removeFromCache(\ReflectionClass $reflectionClass): void
     {
@@ -101,7 +101,7 @@ class Cache implements ICache
      * @param \ReflectionClass $reflectionClass
      *
      * @return string|null
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function getFromCache(\ReflectionClass $reflectionClass): string|null
     {
@@ -115,7 +115,7 @@ class Cache implements ICache
     /**
      * Put value in cache
      *
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function putInCache(\ReflectionClass $reflectionClass, string $json): void
     {
@@ -131,7 +131,7 @@ class Cache implements ICache
 
     /**
      * @return void
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function clearCache(): void
     {

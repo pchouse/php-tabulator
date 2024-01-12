@@ -39,8 +39,7 @@ class KeyBinding extends ABase
         private string|bool|Undefined|null $scrollToStart = Undefined::UNDEFINED,
         private string|bool|Undefined|null $scrollToEnd = Undefined::UNDEFINED,
         private string|bool|Undefined|null $copyToClipboard = Undefined::UNDEFINED,
-    )
-    {
+    ) {
     }
 
     /**

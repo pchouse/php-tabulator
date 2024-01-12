@@ -21,8 +21,7 @@ class LinkParams extends ABase
         private string|Undefined|null $url = Undefined::UNDEFINED,
         private string|Undefined|null $target = Undefined::UNDEFINED,
         private string|Undefined|null $download = Undefined::UNDEFINED,
-    )
-    {
+    ) {
     }
 
     /**

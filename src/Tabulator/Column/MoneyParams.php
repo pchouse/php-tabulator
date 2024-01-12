@@ -28,8 +28,7 @@ class MoneyParams extends ABase
         private bool|Undefined|null   $symbolAfter = Undefined::UNDEFINED,
         private bool|Undefined|null   $precision = Undefined::UNDEFINED,
         private string|Undefined|null $negativeSign = Undefined::UNDEFINED,
-    )
-    {
+    ) {
     }
 
     /**

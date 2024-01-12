@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace PChouse\Tabulator;
 
-use PChouse\Cache\CacheException;
-use PChouse\Config\Config;
+use PChouse\Tabulator\Cache\CacheException;
+use PChouse\Tabulator\Config\Config;
 
 class OptionsJson extends ABase
 {
@@ -35,7 +35,7 @@ class OptionsJson extends ABase
     }
 
     /**
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      * @throws \PChouse\Tabulator\TabulatorJsonException
      */
     public function toJson(): string

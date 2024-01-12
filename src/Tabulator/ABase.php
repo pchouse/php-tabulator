@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace PChouse\Tabulator;
 
-use PChouse\Config\Config;
+use PChouse\Tabulator\Config\Config;
 
 abstract class ABase implements \JsonSerializable
 {

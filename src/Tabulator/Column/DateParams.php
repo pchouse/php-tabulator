@@ -22,8 +22,7 @@ class DateParams extends SharedEditorParams
         private string|null             $max = null,
         private string|null             $format = null,
         private VerticalNavigation|null $verticalNavigation = null,
-    )
-    {
+    ) {
         parent::__construct($mask, $maskAutoFill, $maskLetterChar, $maskNumberChar, $maskWildcardChar);
     }
 

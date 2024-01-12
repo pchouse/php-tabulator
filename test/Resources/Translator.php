@@ -6,18 +6,8 @@ namespace PChouse\Resources;
 class Translator implements \PChouse\Tabulator\Translator
 {
 
-
-
-
-
-
-
-
-
-
-
     public function translate(string $key): string
     {
-		return ucfirst($key);
-	}
+        return ucfirst($key);
+    }
 }

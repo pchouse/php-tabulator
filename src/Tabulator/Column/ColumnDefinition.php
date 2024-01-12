@@ -136,8 +136,7 @@ class ColumnDefinition extends ABase
         private bool|Undefined|null                  $titlePrint = Undefined::UNDEFINED,
         private int|Undefined|null                   $maxWidth = Undefined::UNDEFINED,
         private bool|Undefined|null                  $headerWordWrap = Undefined::UNDEFINED,
-    )
-    {
+    ) {
         $this->setPosition($position);
     }
 
@@ -270,7 +269,6 @@ class ColumnDefinition extends ABase
 
     /**
      * phpcs:ignore
-     *
      * @param \PChouse\Tabulator\Column\DateTimeDifferenceParams|\PChouse\Tabulator\Column\DateTimeParams|\PChouse\Tabulator\Column\ImageParams|\PChouse\Tabulator\Column\LinkParams|\PChouse\Tabulator\Column\MoneyParams|\PChouse\Tabulator\Column\ProgressBarParams|\PChouse\Tabulator\Column\StarRatingParams|\PChouse\Tabulator\Column\TickCrossParams|\PChouse\Tabulator\Column\TrafficParams|\PChouse\Tabulator\Undefined|null $formatterParams
      *
      * @return ColumnDefinition
@@ -293,7 +291,6 @@ class ColumnDefinition extends ABase
 
     /**
      * phpcs:ignore
-     *
      * @param \PChouse\Tabulator\Column\CheckboxParams|\PChouse\Tabulator\Column\DateTimeEditorParams|\PChouse\Tabulator\Column\TimeParams|\PChouse\Tabulator\Column\DateParams|\PChouse\Tabulator\Undefined|\PChouse\Tabulator\Column\InputParams|\PChouse\Tabulator\Column\TextAreaParams|\PChouse\Tabulator\Column\NumberParams|null $editorParams
      *
      * @return $this

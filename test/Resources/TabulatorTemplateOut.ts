@@ -2,11 +2,7 @@ import { TabulatorFull as Tabulator } from "tabulator-tables";
 
 export function tabulatorTemplate() {
   return new Tabulator("", {
-    initialSort: [
-      { column: "column1", dir: "asc" },
-      { column: "column2", dir: "desc" },
-      { column: "column3", dir: "asc" },
-    ],
+    initialSort: undefined,
     columns: [
       {
         sorterParams: {
@@ -17,8 +13,8 @@ export function tabulatorTemplate() {
         },
         formatterParams: undefined,
         editorParams: undefined,
-        title: "Column Three",
-        field: "column3",
+        title: "Column",
+        field: "C",
         visible: undefined,
         width: undefined,
         hozAlign: "left",
@@ -80,7 +76,7 @@ export function tabulatorTemplate() {
           selectContents: undefined,
         },
         title: "Column Two",
-        field: "column2",
+        field: "B",
         visible: undefined,
         width: undefined,
         hozAlign: "right",
@@ -139,8 +135,8 @@ export function tabulatorTemplate() {
           verticalNavigation: undefined,
           selectContents: undefined,
         },
-        title: "Column One",
-        field: "column1",
+        title: "Column",
+        field: "A",
         visible: undefined,
         width: undefined,
         hozAlign: "center",

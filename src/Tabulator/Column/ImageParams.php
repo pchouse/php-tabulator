@@ -25,8 +25,7 @@ class ImageParams extends ABase
         private string|Undefined|null $width = Undefined::UNDEFINED,
         private string|Undefined|null $urlPrefix = Undefined::UNDEFINED,
         private string|Undefined|null $urlSuffix = Undefined::UNDEFINED,
-    )
-    {
+    ) {
     }
 
     /**

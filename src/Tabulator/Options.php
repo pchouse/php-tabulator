@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace PChouse\Tabulator;
 
-use PChouse\Config\Config;
 use PChouse\Tabulator\Column\CheckboxParams;
 use PChouse\Tabulator\Column\ColumnCalc;
 use PChouse\Tabulator\Column\ColumnDefinition;
@@ -27,6 +26,7 @@ use PChouse\Tabulator\Column\TickCrossParams;
 use PChouse\Tabulator\Column\TimeParams;
 use PChouse\Tabulator\Column\TrafficParams;
 use PChouse\Tabulator\Column\VerticalAlign;
+use PChouse\Tabulator\Config\Config;
 use PChouse\Tabulator\Sorter\Sorter;
 use PChouse\Tabulator\Sorter\SortMode;
 
@@ -195,8 +195,7 @@ class Options extends OptionsJson
         private ValidationMode|Undefined|null         $validationMode = Undefined::UNDEFINED,
         private TextDirection|Undefined|null          $textDirection = Undefined::UNDEFINED,
         //</editor-fold>
-    )
-    {
+    ) {
     }
 
     //<editor-fold desc="OptionsData">
@@ -1019,8 +1018,7 @@ class Options extends OptionsJson
      */
     public function setResponsiveLayoutCollapseStartOpen(
         bool|Undefined|null $responsiveLayoutCollapseStartOpen
-    ): Options
-    {
+    ): Options {
         $this->responsiveLayoutCollapseStartOpen = $responsiveLayoutCollapseStartOpen;
         return $this;
     }
@@ -1040,8 +1038,7 @@ class Options extends OptionsJson
      */
     public function setResponsiveLayoutCollapseUseFormatters(
         bool|Undefined|null $responsiveLayoutCollapseUseFormatters
-    ): Options
-    {
+    ): Options {
         $this->responsiveLayoutCollapseUseFormatters = $responsiveLayoutCollapseUseFormatters;
         return $this;
     }
@@ -1694,6 +1691,7 @@ class Options extends OptionsJson
                 $formatterParametersAttributes = $property->getAttributes($formatterAttributeName);
                 if (\count($formatterParametersAttributes) > 0) {
                     /**
+                     * phpcs:ignore
                      * @var MoneyParams|ImageParams|LinkParams|DateTimeParams|DateTimeDifferenceParams|TickCrossParams|TrafficParams|ProgressBarParams|StarRatingParams $formatterParameters
                      */
                     $formatterParameters = $formatterParametersAttributes[0]->newInstance();
@@ -1717,6 +1715,7 @@ class Options extends OptionsJson
                 $editorParametersAttributes = $property->getAttributes($editorParameterName);
                 if (\count($editorParametersAttributes) > 0) {
                     /**
+                     * phpcs:ignore
                      * @var NumberParams|CheckboxParams|InputParams|TextAreaParams|DateParams|TimeParams|DateTimeEditorParams $editorParameters
                      */
                     $editorParameters = $definitionSorterParamsAttributes[0]->newInstance();
@@ -1739,7 +1738,7 @@ class Options extends OptionsJson
      *
      * @return string
      * @throws \PChouse\Tabulator\TabulatorJsonException
-     * @throws \PChouse\Cache\CacheException
+     * @throws \PChouse\Tabulator\Cache\CacheException
      */
     public function toJson(): string
     {
@@ -1790,12 +1789,12 @@ class Options extends OptionsJson
 
             if (!\array_key_exists($position, $newPosition)) {
                 $newPosition[$position] = $column;
-                \sort($newPosition);
+                \ksort($newPosition);
                 continue;
             }
 
             $newPosition = \array_values($newPosition);
-            \sort($newPosition);
+            \ksort($newPosition);
 
             \array_splice($newPosition, $position, 0, [$column]);
         }

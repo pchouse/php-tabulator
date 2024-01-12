@@ -35,8 +35,7 @@ class NumberParams extends SharedEditorParams
         private int|float|Undefined|null          $step = Undefined::UNDEFINED,
         private VerticalNavigation|Undefined|null $verticalNavigation = Undefined::UNDEFINED,
         private bool|Undefined|null               $selectContents = Undefined::UNDEFINED,
-    )
-    {
+    ) {
         parent::__construct($mask, $maskAutoFill, $maskLetterChar, $maskNumberChar, $maskWildcardChar);
     }
 

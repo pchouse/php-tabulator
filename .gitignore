@@ -2,3 +2,4 @@ vendor/*
 .php*
 .idea
 node_modules/*
+Cache/*php

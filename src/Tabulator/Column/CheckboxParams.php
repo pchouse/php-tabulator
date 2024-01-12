@@ -20,8 +20,7 @@ class CheckboxParams extends SharedEditorParams
         string|Undefined|null         $maskWildcardChar = Undefined::UNDEFINED,
         private bool|Undefined|null   $tristate = Undefined::UNDEFINED,
         private string|Undefined|null $indeterminateValue = Undefined::UNDEFINED,
-    )
-    {
+    ) {
         parent::__construct($mask, $maskAutoFill, $maskLetterChar, $maskNumberChar, $maskWildcardChar);
     }
 

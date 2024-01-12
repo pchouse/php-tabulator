@@ -25,8 +25,7 @@ class ColumnDefinitionSorterParams extends ABase
         private string|bool|Undefined|null         $locale = Undefined::UNDEFINED,
         private AlignEmptyValues|Undefined|null    $alignEmptyValues = Undefined::UNDEFINED,
         private SorterParameterType|Undefined|null $type = Undefined::UNDEFINED,
-    )
-    {
+    ) {
     }
 
     /**

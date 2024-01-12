@@ -1,14 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace PChouse\Config;
+namespace PChouse\Tabulator\Config;
 
-use PChouse\Cache\Cache;
-use PChouse\Cache\ICache;
+use PChouse\Tabulator\Cache\Cache;
+use PChouse\Tabulator\Cache\ICache;
 
 class Config
 {
-
 
     protected static Config|null $config = null;
 
@@ -49,7 +48,7 @@ class Config
     }
 
     /**
-     * @return \PChouse\Cache\ICache|null
+     * @return \PChouse\Tabulator\Cache\ICache|null
      */
     public function getCache(): ?ICache
     {
@@ -57,7 +56,7 @@ class Config
     }
 
     /**
-     * @param \PChouse\Cache\ICache|null $cache
+     * @param \PChouse\Tabulator\Cache\ICache|null $cache
      *
      * @return Config
      */

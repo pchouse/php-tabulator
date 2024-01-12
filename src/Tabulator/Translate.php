@@ -10,6 +10,4 @@ namespace PChouse\Tabulator;
 #[\Attribute(\Attribute::TARGET_PROPERTY)]
 class Translate
 {
-
-
 }

@@ -23,8 +23,7 @@ abstract class SharedEditorParams extends ABase
         private string|Undefined|null $maskLetterChar,
         private string|Undefined|null $maskNumberChar,
         private string|Undefined|null $maskWildcardChar,
-    )
-    {
+    ) {
     }
 
     /**

@@ -19,8 +19,7 @@ class DateTimeParams extends ABase
         private string|Undefined|null                       $outputFormat = Undefined::UNDEFINED,
         #[Translate] private string|true|int|Undefined|null $invalidPlaceholder = Undefined::UNDEFINED,
         private string|Undefined|null                       $timezone = Undefined::UNDEFINED,
-    )
-    {
+    ) {
     }
 
     /**

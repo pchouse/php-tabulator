@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace PChouse\Cache;
+namespace PChouse\Tabulator\Cache;
 
 use JetBrains\PhpStorm\Pure;
 
