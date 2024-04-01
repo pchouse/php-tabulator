@@ -46,6 +46,7 @@ class OptionsTest extends TestCase
      * @return void
      * @throws \PChouse\Tabulator\Cache\CacheException
      * @throws \PChouse\Tabulator\TabulatorJsonException
+     * @throws \PChouse\Tabulator\TabulatorException
      */
     public function testOptionsNoUndefined(): void
     {
@@ -74,6 +75,7 @@ class OptionsTest extends TestCase
      * @return void
      * @throws \PChouse\Tabulator\Cache\CacheException
      * @throws \PChouse\Tabulator\TabulatorJsonException
+     * @throws \PChouse\Tabulator\TabulatorException
      */
     public function testOptionsUndefined(): void
     {
@@ -102,6 +104,7 @@ class OptionsTest extends TestCase
      * @return void
      * @throws \PChouse\Tabulator\Cache\CacheException
      * @throws \PChouse\Tabulator\TabulatorJsonException
+     * @throws \PChouse\Tabulator\TabulatorException
      */
     public function testAll(): void
     {
@@ -269,6 +272,7 @@ class OptionsTest extends TestCase
      * @throws \PChouse\Tabulator\TabulatorJsonException
      * @throws \PChouse\Tabulator\Cache\CacheException
      * @throws \PChouse\Tabulator\Column\ColumnDefinitionException
+     * @throws \PChouse\Tabulator\TabulatorException
      */
     public function testColumnOrder(): void
     {
@@ -381,6 +385,7 @@ class OptionsTest extends TestCase
      * @throws \PChouse\Tabulator\TabulatorJsonException
      * @throws \PChouse\Tabulator\Cache\CacheException
      * @throws \PChouse\Tabulator\Column\ColumnDefinitionException
+     * @throws \PChouse\Tabulator\TabulatorException
      */
     public function testColumnOrderTwo(): void
     {

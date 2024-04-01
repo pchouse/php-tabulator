@@ -60,68 +60,75 @@ class Options extends OptionsJson
 
     // phpcs:disable
     /**
-     * @param string|int|\PChouse\Tabulator\Undefined|null $index                                                        A unique index value should be present for each row of data if you want to be able to programmatically alter that data at a later point, this should be either numeric or a string. By default, Tabulator will look for this value in the id field for the data. If you wish to use a different field as the index, set this using the index option parameter.
-     * @param array|null|\PChouse\Tabulator\Undefined $data                                                              Array to hold data that should be loaded on table creation.
-     * @param \PChouse\Tabulator\ImportFormat|\PChouse\Tabulator\Undefined|null $importFormat
-     * @param \PChouse\Tabulator\ImportReader|\PChouse\Tabulator\Undefined|null $importReader                            By default, Tabulator will read in the file as plain text, which is the format used by all the builtin importers. If you need to read the file data in a different format then you can use the importReader option to instruct the file reader to read in the file in a different format.
-     * @param bool|null $autoTables
-     * @param string|\PChouse\Tabulator\Undefined|null $ajaxURL                                                          If you wish to retrieve your data from a remote source you can set the URL for the request in the ajaxURL option.
-     * @param array|\PChouse\Tabulator\Undefined|null $ajaxParams                                                        Parameters to be passed to remote Ajax data loading request.
-     * @param \PChouse\Tabulator\AjaxContentType|\PChouse\Tabulator\Undefined|null $ajaxContentType                      When using a request method other than "GET" Tabulator will send any parameters with a content type of form data. You can change the content type with the ajaxContentType option. This will ensure parameters are sent in the format you expect, with the correct headers.
-     * @param bool|\PChouse\Tabulator\Undefined|null $ajaxFiltering                                                      Send filter config to server instead of processing locally
-     * @param bool|\PChouse\Tabulator\Undefined|null $ajaxSorting                                                        Send sorter config to server instead of processing locally
-     * @param \PChouse\Tabulator\ProgressiveLoad|\PChouse\Tabulator\Undefined|null $progressiveLoad                      There are two different progressive loading modes, to give you a choice of how data is loaded into the table.
-     * @param int|\PChouse\Tabulator\Undefined|null $progressiveLoadDelay                                                By default, tabulator will make the requests to fill the table as quickly as possible. On some servers these repeats requests from the same client may trigger rate limiting or security systems. In this case you can use the ajaxProgressiveLoadDelay option to add a delay in milliseconds between each page request.
-     * @param int|\PChouse\Tabulator\Undefined|null $progressiveLoadScrollMargin                                         The ajaxProgressiveLoadScrollMargin property determines how close to the bottom of the table in pixels, the scroll bar must be before the next page worth of data is loaded, by default it is set to twice the height of the table.
-     * @param bool|\PChouse\Tabulator\Undefined|null $ajaxLoader                                                         Show loader while data is loading
-     * @param string|\PChouse\Tabulator\Undefined|null $ajaxLoaderLoading                                                html for loader element.
-     * @param string|\PChouse\Tabulator\Undefined|null $ajaxLoaderError                                                  html for the loader element in the event of an error.
-     * @param bool|null $dataLoader
-     * @param bool|null $dataLoaderError
-     * @param int|null $dataLoaderErrorTimeout
-     * @param \PChouse\Tabulator\Sorter\SortMode|null $sortMode
-     * @param \PChouse\Tabulator\Sorter\SortMode|null $filterMode
-     * @param bool|null $pagination
-     * @param \PChouse\Tabulator\Sorter\SortMode|null $paginationMode
-     * @param int|\PChouse\Tabulator\Undefined|null $paginationSize                                                      Set the number of rows in each page.
-     * @param bool|array<int|string>|\PChouse\Tabulator\Undefined|null $paginationSizeSelector                           Setting this option to true will cause Tabulator to create a list of page size options, that are multiples of the current page size, ex: [5, 10, 20, 50, 100].
-     * @param \PChouse\Tabulator\PaginationAddRow|\PChouse\Tabulator\Undefined|null $paginationAddRow                    When using the addRow function on a paginated table, rows will be added relative to the current page (ie to the top or bottom of the current page), with overflowing rows being shifted onto the next page.
-     * @param int|\PChouse\Tabulator\Undefined|null $paginationButtonCount                                               The number of pagination page buttons shown in the footer using the paginationButtonCount option. By default, this has a value of 5.
-     * @param int|\PChouse\Tabulator\Undefined|null $paginationInitialPage
-     * @param bool|\PChouse\Tabulator\Undefined|null $sortOrderReverse                                                   Reverse the order that multiple sorters are applied to the table.
-     * @param \PChouse\Tabulator\HeaderSortClickElement|null $headerSortClickElement
-     * @param bool|\PChouse\Tabulator\Undefined|null $autoColumns                                                        If you set the autoColumns option to true, every time data is loaded into the table through the data option or through the setData function, Tabulator will examine the first row of the data and build columns to match that data.
-     * @param \PChouse\Tabulator\Column\Layout|\PChouse\Tabulator\Undefined|null $layout                                 By default, Tabulator will use the fitData layout mode, which will resize the tables columns to fit the data held in each column, unless you specify a width or minWidth in the column constructor. If the width of all columns exceeds the width of the containing element, a scroll bar will appear.
-     * @param bool|\PChouse\Tabulator\Undefined|null $layoutColumnsOnNewData                                             To keep the layout of the columns consistent, once the column widths have been set on the first data load (either from the data property in the constructor or the setData function) they will not be changed when new data is loaded.
-     *                                                                                                                   If you prefer that the column widths adjust to the data each time you load it into the table you can set the layoutColumnsOnNewData property to true.
-     * @param \PChouse\Tabulator\Column\ResponsiveLayout|bool|\PChouse\Tabulator\Undefined|null $responsiveLayout        Responsive layout will automatically hide/show columns to fit the width of the Tabulator element. This allows for clean rendering of tables on smaller mobile devices, showing important data while avoiding horizontal scroll bars. You can enable responsive layouts using the responsiveLayout option.
-     * @param bool|\PChouse\Tabulator\Undefined|null $responsiveLayoutCollapseStartOpen                                  Collapsed lists are displayed to the user by default, if you would prefer they start closed so the user can open them you can use the responsiveLayoutCollapseStartOpen option.
-     * @param bool|\PChouse\Tabulator\Undefined|null $responsiveLayoutCollapseUseFormatters                              By default, any formatter set on the column is applied to the value that will appear in the list. while this works for most formatters it can cause issues with the progress formatter which relies on being inside a cell.
-     * @param bool|\PChouse\Tabulator\Undefined|null $movableColumns                                                     To allow the user to move columns along the table
-     * @param \PChouse\Tabulator\Column\VerticalAlign|\PChouse\Tabulator\Undefined|null $columnHeaderVertAlign           You can use the columnHeaderVertAlign option to set how the text in your column headers should be vertically.
-     * @param \PChouse\Tabulator\Column\ScrollToColumnPosition|\PChouse\Tabulator\Undefined|null $scrollToColumnPosition The default ScrollTo position can be set using the scrollToColumnPosition option.
-     * @param bool|\PChouse\Tabulator\Undefined|null $scrollToColumnIfVisible                                            The default option for triggering a ScrollTo on a visible element can be set using the scrollToColumnIfVisible option.
-     * @param \PChouse\Tabulator\Column\ColumnCalc|bool|\PChouse\Tabulator\Undefined|null $columnCalcs                   By default, column calculations are shown at the top and bottom of the table
-     * @param string|bool|\PChouse\Tabulator\Undefined|null $nestedFieldSeparator                                        If you need to use the . character as part of your field name, you can change the separator to any other character using the nestedFieldSeparator option
-     *                                                                                                                   Set false to disable nested data parsing
-     * @param bool|\PChouse\Tabulator\Undefined|null $columnHeaderSortMulti                                              multiple or single column sorting
-     * @param bool|\PChouse\Tabulator\Undefined|null $headerSort                                                         The headerSort option can now be set in the table options to affect all columns as well as in column definitions.
-     * @param bool|\PChouse\Tabulator\Undefined|null $resizableColumnFit
-     * @param string|int|false|\PChouse\Tabulator\Undefined|null $height                                                 Sets the height of the containing element, can be set to any valid height css value. If set to false (the default), the height of the table will resize to fit the table data.
-     * @param string|int|\PChouse\Tabulator\Undefined|null $maxHeight                                                    Can be set to any valid CSS value. By setting this you can allow your table to expand to fit the data, but not overflow its parent element. When there are too many rows to fit in the available space, the vertical scroll bar will be shown. This has the added benefit of improving load times on larger tables
-     * @param string|int|\PChouse\Tabulator\Undefined|null $minHeight                                                    With a variable table height you can set the minimum height of the table either defined in the min-height CSS property for the element or set it using the minHeight option in the table constructor, this can be set to any valid CSS value.
-     * @param \PChouse\Tabulator\RenderMode|\PChouse\Tabulator\Undefined $renderVertical
-     * @param \PChouse\Tabulator\RenderMode|\PChouse\Tabulator\Undefined $renderHorizontal
-     * @param int|null $rowHeight
-     * @param bool|int|\PChouse\Tabulator\Undefined|null $renderVerticalBuffer                                           Manually set the size of the virtual DOM buffer.
-     * @param string|null $placeholder                                                                                   Placeholder element to display on empty table.
-     * @param string|null $placeholderHeaderFilter
-     * @param string|null $footerElement                                                                                 Footer  element to display for the table.
-     * @param bool|\PChouse\Tabulator\Undefined|null $reactiveData                                                       The reactivity systems allow Tabulator to watch arrays and objects passed into the table for changes and then automatically update the table.
-     * @param bool|\PChouse\Tabulator\Undefined|null $autoResize                                                         Tabulator will automatically attempt to redraw the data contained in the table if the containing element for the table is resized. To disable this functionality, set the autoResize property to false.
-     * @param bool|\PChouse\Tabulator\Undefined|null $invalidOptionWarnings                                              Setting the invalidOptionWarnings option to false will disable console warning messages for invalid properties in the table constructor and column definition object.
-     * @param \PChouse\Tabulator\ValidationMode|\PChouse\Tabulator\Undefined|null $validationMode                        There are now three different validation modes available to customize the validation experience
-     * @param \PChouse\Tabulator\TextDirection|\PChouse\Tabulator\Undefined|null $textDirection
+     * @param string|int|\PChouse\Tabulator\Undefined|null                                       $index                                 A unique index value should be present for each row of data if you want to be able to programmatically alter that data at a later point, this should be either numeric or a string. By default, Tabulator will look for this value in the id field for the data. If you wish to use a different field as the index, set this using the index option parameter.
+     * @param array|null|\PChouse\Tabulator\Undefined                                            $data                                  Array to hold data that should be loaded on table creation.
+     * @param \PChouse\Tabulator\ImportFormat|\PChouse\Tabulator\Undefined|null                  $importFormat
+     * @param \PChouse\Tabulator\ImportReader|\PChouse\Tabulator\Undefined|null                  $importReader                          By default, Tabulator will read in the file as plain text, which is the format used by all the builtin importers. If you need to read the file data in a different format then you can use the importReader option to instruct the file reader to read in the file in a different format.
+     * @param bool|null                                                                          $autoTables
+     * @param string|\PChouse\Tabulator\Undefined|null                                           $ajaxURL                               If you wish to retrieve your data from a remote source you can set the URL for the request in the ajaxURL option.
+     * @param array|\PChouse\Tabulator\Undefined|null                                            $ajaxParams                            Parameters to be passed to remote Ajax data loading request.
+     * @param \PChouse\Tabulator\AjaxContentType|\PChouse\Tabulator\Undefined|null               $ajaxContentType                       When using a request method other than "GET" Tabulator will send any parameters with a content type of form data. You can change the content type with the ajaxContentType option. This will ensure parameters are sent in the format you expect, with the correct headers.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $ajaxFiltering                         Send filter config to server instead of processing locally
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $ajaxSorting                           Send sorter config to server instead of processing locally
+     * @param \PChouse\Tabulator\ProgressiveLoad|\PChouse\Tabulator\Undefined|null               $progressiveLoad                       There are two different progressive loading modes, to give you a choice of how data is loaded into the table.
+     * @param int|\PChouse\Tabulator\Undefined|null                                              $progressiveLoadDelay                  By default, tabulator will make the requests to fill the table as quickly as possible. On some servers these repeats requests from the same client may trigger rate limiting or security systems. In this case you can use the ajaxProgressiveLoadDelay option to add a delay in milliseconds between each page request.
+     * @param int|\PChouse\Tabulator\Undefined|null                                              $progressiveLoadScrollMargin           The ajaxProgressiveLoadScrollMargin property determines how close to the bottom of the table in pixels, the scroll bar must be before the next page worth of data is loaded, by default it is set to twice the height of the table.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $ajaxLoader                            Show loader while data is loading
+     * @param string|\PChouse\Tabulator\Undefined|null                                           $ajaxLoaderLoading                     html for loader element.
+     * @param string|\PChouse\Tabulator\Undefined|null                                           $ajaxLoaderError                       html for the loader element in the event of an error.
+     * @param bool|null                                                                          $dataLoader
+     * @param bool|null                                                                          $dataLoaderError
+     * @param int|null                                                                           $dataLoaderErrorTimeout
+     * @param \PChouse\Tabulator\Sorter\SortMode|null                                            $sortMode
+     * @param \PChouse\Tabulator\Sorter\SortMode|null                                            $filterMode
+     * @param bool|null                                                                          $pagination
+     * @param \PChouse\Tabulator\Sorter\SortMode|null                                            $paginationMode
+     * @param int|\PChouse\Tabulator\Undefined|null                                              $paginationSize                        Set the number of rows in each page.
+     * @param bool|array<int|string>|\PChouse\Tabulator\Undefined|null                           $paginationSizeSelector                Setting this option to true will cause Tabulator to create a list of page size options, that are multiples of the current page size, ex: [5, 10, 20, 50, 100].
+     * @param \PChouse\Tabulator\PaginationAddRow|\PChouse\Tabulator\Undefined|null              $paginationAddRow                      When using the addRow function on a paginated table, rows will be added relative to the current page (ie to the top or bottom of the current page), with overflowing rows being shifted onto the next page.
+     * @param int|\PChouse\Tabulator\Undefined|null                                              $paginationButtonCount                 The number of pagination page buttons shown in the footer using the paginationButtonCount option. By default, this has a value of 5.
+     * @param int|\PChouse\Tabulator\Undefined|null                                              $paginationInitialPage
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $sortOrderReverse                      Reverse the order that multiple sorters are applied to the table.
+     * @param \PChouse\Tabulator\HeaderSortClickElement|null                                     $headerSortClickElement
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $autoColumns                           If you set the autoColumns option to true, every time data is loaded into the table through the data option or through the setData function, Tabulator will examine the first row of the data and build columns to match that data.
+     * @param \PChouse\Tabulator\Column\Layout|\PChouse\Tabulator\Undefined|null                 $layout                                By default, Tabulator will use the fitData layout mode, which will resize the tables columns to fit the data held in each column, unless you specify a width or minWidth in the column constructor. If the width of all columns exceeds the width of the containing element, a scroll bar will appear.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $layoutColumnsOnNewData                To keep the layout of the columns consistent, once the column widths have been set on the first data load (either from the data property in the constructor or the setData function) they will not be changed when new data is loaded.
+     *                                                                                                                                  If you prefer that the column widths adjust to the data each time you load it into the table you can set the layoutColumnsOnNewData property to true.
+     * @param \PChouse\Tabulator\Column\ResponsiveLayout|bool|\PChouse\Tabulator\Undefined|null  $responsiveLayout                      Responsive layout will automatically hide/show columns to fit the width of the Tabulator element. This allows for clean rendering of tables on smaller mobile devices, showing important data while avoiding horizontal scroll bars. You can enable responsive layouts using the responsiveLayout option.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $responsiveLayoutCollapseStartOpen     Collapsed lists are displayed to the user by default, if you would prefer they start closed so the user can open them you can use the responsiveLayoutCollapseStartOpen option.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $responsiveLayoutCollapseUseFormatters By default, any formatter set on the column is applied to the value that will appear in the list. while this works for most formatters it can cause issues with the progress formatter which relies on being inside a cell.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $movableColumns                        To allow the user to move columns along the table
+     * @param \PChouse\Tabulator\Column\VerticalAlign|\PChouse\Tabulator\Undefined|null          $columnHeaderVertAlign                 You can use the columnHeaderVertAlign option to set how the text in your column headers should be vertically.
+     * @param \PChouse\Tabulator\Column\ScrollToColumnPosition|\PChouse\Tabulator\Undefined|null $scrollToColumnPosition                The default ScrollTo position can be set using the scrollToColumnPosition option.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $scrollToColumnIfVisible               The default option for triggering a ScrollTo on a visible element can be set using the scrollToColumnIfVisible option.
+     * @param \PChouse\Tabulator\Column\ColumnCalc|bool|\PChouse\Tabulator\Undefined|null        $columnCalcs                           By default, column calculations are shown at the top and bottom of the table
+     * @param string|bool|\PChouse\Tabulator\Undefined|null                                      $nestedFieldSeparator                  If you need to use the . character as part of your field name, you can change the separator to any other character using the nestedFieldSeparator option
+     *                                                                                                                                  Set false to disable nested data parsing
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $columnHeaderSortMulti                 multiple or single column sorting
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $headerSort                            The headerSort option can now be set in the table options to affect all columns as well as in column definitions.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $resizableColumnFit
+     * @param string|int|false|\PChouse\Tabulator\Undefined|null                                 $height                                Sets the height of the containing element, can be set to any valid height css value. If set to false (the default), the height of the table will resize to fit the table data.
+     * @param string|int|\PChouse\Tabulator\Undefined|null                                       $maxHeight                             Can be set to any valid CSS value. By setting this you can allow your table to expand to fit the data, but not overflow its parent element. When there are too many rows to fit in the available space, the vertical scroll bar will be shown. This has the added benefit of improving load times on larger tables
+     * @param string|int|\PChouse\Tabulator\Undefined|null                                       $minHeight                             With a variable table height you can set the minimum height of the table either defined in the min-height CSS property for the element or set it using the minHeight option in the table constructor, this can be set to any valid CSS value.
+     * @param \PChouse\Tabulator\RenderMode|\PChouse\Tabulator\Undefined                         $renderVertical
+     * @param \PChouse\Tabulator\RenderMode|\PChouse\Tabulator\Undefined                         $renderHorizontal
+     * @param int|null                                                                           $rowHeight
+     * @param bool|int|\PChouse\Tabulator\Undefined|null                                         $renderVerticalBuffer                  Manually set the size of the virtual DOM buffer.
+     * @param string|null                                                                        $placeholder                           Placeholder element to display on empty table.
+     * @param string|null                                                                        $placeholderHeaderFilter
+     * @param string|null                                                                        $footerElement                         Footer  element to display for the table.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $reactiveData                          The reactivity systems allow Tabulator to watch arrays and objects passed into the table for changes and then automatically update the table.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $autoResize                            Tabulator will automatically attempt to redraw the data contained in the table if the containing element for the table is resized. To disable this functionality, set the autoResize property to false.
+     * @param bool|\PChouse\Tabulator\Undefined|null                                             $invalidOptionWarnings                 Setting the invalidOptionWarnings option to false will disable console warning messages for invalid properties in the table constructor and column definition object.
+     * @param \PChouse\Tabulator\ValidationMode|\PChouse\Tabulator\Undefined|null                $validationMode                        There are now three different validation modes available to customize the validation experience
+     * @param \PChouse\Tabulator\TextDirection|\PChouse\Tabulator\Undefined|null                 $textDirection
+     * @param bool|int|\PChouse\Tabulator\SelectableRows|\PChouse\Tabulator\Undefined            $selectableRows                        false - selectable rows are disabled; true - selectable rows are enabled, and you can select as many as you want; integer - any integer value, this sets the maximum number of rows that can be selected (when the maximum number of selected rows is exceeded, the first selected row will be deselected to allow the next row to be selected). "highlight" (default) - rows have the same hover styling as selectable rows but do not change state when clicked. This is great for when you want to show that a row is clickable but don't want it to be selectable.
+     * @param \PChouse\Tabulator\SelectableRowsRangeMode|\PChouse\Tabulator\Undefined            $selectableRowsRangeMode               By default, you can select a range of rows by holding down the shift key and click dragging over a number of rows to toggle the selected state of all rows the cursor passes over. If you preferred to select a range of row by clicking on the first row then holding down shift and clicking on the end row then you can achieve this by setting the selectableRowsRangeMode to click
+     * @param bool|\PChouse\Tabulator\Undefined                                                  $selectableRowsRollingSelection        By default, row selection works on a rolling basis, if you set the selectableRows option to a numeric value then when you select past this number of rows, the first row to be selected will be deselected. If you want to disable this behaviour and instead prevent selection of new rows once the limit is reached you can set the selectableRowsRollingSelection option to false.
+     * @param bool|\PChouse\Tabulator\Undefined                                                  $selectableRowsPersistence             By default, Tabulator will maintain selected rows when the table is filtered, sorted or paginated (but NOT when the setData function is used). If you want the selected rows to be cleared whenever the table view is updated then set the selectableRowsPersistence option to false.
+     * @param int|\PChouse\Tabulator\Undefined                                                   $headerFilterLiveFilterDelay           By default, Tabulator will wait 300 milliseconds after a keystroke before triggering the filter
+     *
+     * @throws \PChouse\Tabulator\TabulatorException
      */
     // phpcs:enable
     public function __construct(
@@ -195,7 +202,17 @@ class Options extends OptionsJson
         private ValidationMode|Undefined|null         $validationMode = Undefined::UNDEFINED,
         private TextDirection|Undefined|null          $textDirection = Undefined::UNDEFINED,
         //</editor-fold>
+        //<editor-fold desc="RowSelection>"
+        private bool|int|SelectableRows|Undefined     $selectableRows = Undefined::UNDEFINED,
+        private SelectableRowsRangeMode|Undefined     $selectableRowsRangeMode = Undefined::UNDEFINED,
+        private bool|Undefined                        $selectableRowsRollingSelection = Undefined::UNDEFINED,
+        private bool|Undefined                        $selectableRowsPersistence = Undefined::UNDEFINED,
+        private int|Undefined                         $headerFilterLiveFilterDelay = Undefined::UNDEFINED
+        //</editor-fold>
     ) {
+        if (\is_int($selectableRows) && $selectableRows < 0) {
+            throw new TabulatorException("selectable rows cannot be negative integer");
+        }
     }
 
     //<editor-fold desc="OptionsData">
@@ -1521,6 +1538,105 @@ class Options extends OptionsJson
         return $this;
     }
 
+    /**
+     * @return bool|int|\PChouse\Tabulator\SelectableRows|\PChouse\Tabulator\Undefined
+     */
+    public function getSelectableRows(): SelectableRows|bool|int|Undefined
+    {
+        return $this->selectableRows;
+    }
+
+    /**
+     * @param bool|int|\PChouse\Tabulator\SelectableRows|\PChouse\Tabulator\Undefined $selectableRows
+     *
+     * @return Options
+     * @throws \PChouse\Tabulator\TabulatorException
+     */
+    public function setSelectableRows(SelectableRows|bool|int|Undefined $selectableRows): Options
+    {
+        if (\is_int($selectableRows) && $selectableRows < 0) {
+            throw new TabulatorException("selectable rows cannot be negative integer");
+        }
+        $this->selectableRows = $selectableRows;
+        return $this;
+    }
+
+    /**
+     * @return \PChouse\Tabulator\SelectableRowsRangeMode|\PChouse\Tabulator\Undefined
+     */
+    public function getSelectableRowsRangeMode(): SelectableRowsRangeMode|Undefined
+    {
+        return $this->selectableRowsRangeMode;
+    }
+
+    /**
+     * @param \PChouse\Tabulator\SelectableRowsRangeMode|\PChouse\Tabulator\Undefined $selectableRowsRangeMode
+     *
+     * @return Options
+     */
+    public function setSelectableRowsRangeMode(SelectableRowsRangeMode|Undefined $selectableRowsRangeMode): Options
+    {
+        $this->selectableRowsRangeMode = $selectableRowsRangeMode;
+        return $this;
+    }
+
+    /**
+     * @return bool|\PChouse\Tabulator\Undefined
+     */
+    public function getSelectableRowsRollingSelection(): bool|Undefined
+    {
+        return $this->selectableRowsRollingSelection;
+    }
+
+    /**
+     * @param bool|\PChouse\Tabulator\Undefined $selectableRowsRollingSelection
+     *
+     * @return Options
+     */
+    public function setSelectableRowsRollingSelection(bool|Undefined $selectableRowsRollingSelection): Options
+    {
+        $this->selectableRowsRollingSelection = $selectableRowsRollingSelection;
+        return $this;
+    }
+
+    /**
+     * @return bool|\PChouse\Tabulator\Undefined
+     */
+    public function getSelectableRowsPersistence(): bool|Undefined
+    {
+        return $this->selectableRowsPersistence;
+    }
+
+    /**
+     * @param bool|\PChouse\Tabulator\Undefined $selectableRowsPersistence
+     *
+     * @return Options
+     */
+    public function setSelectableRowsPersistence(bool|Undefined $selectableRowsPersistence): Options
+    {
+        $this->selectableRowsPersistence = $selectableRowsPersistence;
+        return $this;
+    }
+
+    /**
+     * @return int|\PChouse\Tabulator\Undefined
+     */
+    public function getHeaderFilterLiveFilterDelay(): int|Undefined
+    {
+        return $this->headerFilterLiveFilterDelay;
+    }
+
+    /**
+     * @param int|\PChouse\Tabulator\Undefined $headerFilterLiveFilterDelay
+     *
+     * @return Options
+     */
+    public function setHeaderFilterLiveFilterDelay(int|Undefined $headerFilterLiveFilterDelay): Options
+    {
+        $this->headerFilterLiveFilterDelay = $headerFilterLiveFilterDelay;
+        return $this;
+    }
+
     //</editor-fold>
 
     /**
@@ -1528,7 +1644,7 @@ class Options extends OptionsJson
      * If after parse the option set programmatically change between requests
      * do not use cache, or clear teh cache before parse in the request that change
      *
-     * @param \ReflectionClass $attachedClass
+     * @param \ReflectionClass                   $attachedClass
      * @param \PChouse\Tabulator\Translator|null $translator
      *
      * @return \PChouse\Tabulator\Options|\PChouse\Tabulator\OptionsJson If exists in cache it will return OptionJson
