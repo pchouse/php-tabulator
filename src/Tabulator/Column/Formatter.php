@@ -26,4 +26,5 @@ enum Formatter: string
     case HANDLE              = "handle";
     case ROW_SELECTION       = "rowSelection";
     case RESPONSIVE_COLLAPSE = "responsiveCollapse";
+    case TOGGLE              = "toggle";
 }

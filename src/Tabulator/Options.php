@@ -24,6 +24,7 @@ use PChouse\Tabulator\Column\StarRatingParams;
 use PChouse\Tabulator\Column\TextAreaParams;
 use PChouse\Tabulator\Column\TickCrossParams;
 use PChouse\Tabulator\Column\TimeParams;
+use PChouse\Tabulator\Column\ToggleParams;
 use PChouse\Tabulator\Column\TrafficParams;
 use PChouse\Tabulator\Column\VerticalAlign;
 use PChouse\Tabulator\Config\Config;
@@ -1798,6 +1799,7 @@ class Options extends OptionsJson
                 DateTimeParams::class,
                 DateTimeDifferenceParams::class,
                 TickCrossParams::class,
+                ToggleParams::class,
                 TrafficParams::class,
                 ProgressBarParams::class,
                 StarRatingParams::class,

@@ -39,10 +39,10 @@ class ColumnDefinition extends ABase
      * formatterParams that should contain an object with additional
      * information for configuring the formatter.
      *
-     * @var \PChouse\Tabulator\Column\MoneyParams|\PChouse\Tabulator\Column\ImageParams|\PChouse\Tabulator\Column\LinkParams|\PChouse\Tabulator\Column\DateTimeParams|\PChouse\Tabulator\Column\DateTimeDifferenceParams|\PChouse\Tabulator\Column\TickCrossParams|\PChouse\Tabulator\Column\TrafficParams|\PChouse\Tabulator\Column\ProgressBarParams|\PChouse\Tabulator\Column\StarRatingParams|\PChouse\Tabulator\Undefined|null
+     * @var \PChouse\Tabulator\Column\MoneyParams|\PChouse\Tabulator\Column\ImageParams|\PChouse\Tabulator\Column\LinkParams|\PChouse\Tabulator\Column\DateTimeParams|\PChouse\Tabulator\Column\DateTimeDifferenceParams|\PChouse\Tabulator\Column\TickCrossParams|\PChouse\Tabulator\Column\ToggleParams|\PChouse\Tabulator\Column\TrafficParams|\PChouse\Tabulator\Column\ProgressBarParams|\PChouse\Tabulator\Column\StarRatingParams|\PChouse\Tabulator\Undefined|null
      */
     // phpcs:ignore
-    private MoneyParams|ImageParams|LinkParams|DateTimeParams|DateTimeDifferenceParams|TickCrossParams|TrafficParams|ProgressBarParams|StarRatingParams|Undefined|null $formatterParams = Undefined::UNDEFINED;
+    private MoneyParams|ImageParams|LinkParams|DateTimeParams|DateTimeDifferenceParams|TickCrossParams|ToggleParams|TrafficParams|ProgressBarParams|StarRatingParams|Undefined|null $formatterParams = Undefined::UNDEFINED;
 
     // phpcs:ignore
     private NumberParams|CheckboxParams|InputParams|TextAreaParams|DateParams|TimeParams|DateTimeEditorParams|Undefined|null $editorParams = Undefined::UNDEFINED;
@@ -259,22 +259,23 @@ class ColumnDefinition extends ABase
     }
 
     /**
-     * @return \PChouse\Tabulator\Column\DateTimeDifferenceParams|\PChouse\Tabulator\Column\DateTimeParams|\PChouse\Tabulator\Column\ImageParams|\PChouse\Tabulator\Column\LinkParams|\PChouse\Tabulator\Column\MoneyParams|\PChouse\Tabulator\Column\ProgressBarParams|\PChouse\Tabulator\Column\StarRatingParams|\PChouse\Tabulator\Column\TickCrossParams|\PChouse\Tabulator\Column\TrafficParams|\PChouse\Tabulator\Undefined|null
+     * phpcs:ignore
+     * @return \PChouse\Tabulator\Column\DateTimeParams|\PChouse\Tabulator\Column\MoneyParams|\PChouse\Tabulator\Column\TickCrossParams|\PChouse\Tabulator\Column\ToggleParams|\PChouse\Tabulator\Column\DateTimeDifferenceParams|\PChouse\Tabulator\Column\ImageParams|\PChouse\Tabulator\Column\StarRatingParams|\PChouse\Tabulator\Column\TrafficParams|\PChouse\Tabulator\Undefined|\PChouse\Tabulator\Column\ProgressBarParams|\PChouse\Tabulator\Column\LinkParams|null
      */
     // phpcs:ignore
-    public function getFormatterParams(): DateTimeParams|MoneyParams|TickCrossParams|DateTimeDifferenceParams|ImageParams|StarRatingParams|TrafficParams|Undefined|ProgressBarParams|LinkParams|null
+    public function getFormatterParams(): DateTimeParams|MoneyParams|TickCrossParams|ToggleParams|DateTimeDifferenceParams|ImageParams|StarRatingParams|TrafficParams|Undefined|ProgressBarParams|LinkParams|null
     {
         return $this->formatterParams;
     }
 
     /**
      * phpcs:ignore
-     * @param \PChouse\Tabulator\Column\DateTimeDifferenceParams|\PChouse\Tabulator\Column\DateTimeParams|\PChouse\Tabulator\Column\ImageParams|\PChouse\Tabulator\Column\LinkParams|\PChouse\Tabulator\Column\MoneyParams|\PChouse\Tabulator\Column\ProgressBarParams|\PChouse\Tabulator\Column\StarRatingParams|\PChouse\Tabulator\Column\TickCrossParams|\PChouse\Tabulator\Column\TrafficParams|\PChouse\Tabulator\Undefined|null $formatterParams
+     * @param \PChouse\Tabulator\Column\DateTimeParams|\PChouse\Tabulator\Column\MoneyParams|\PChouse\Tabulator\Column\TickCrossParams|\PChouse\Tabulator\Column\ToggleParams|\PChouse\Tabulator\Column\DateTimeDifferenceParams|\PChouse\Tabulator\Column\ImageParams|\PChouse\Tabulator\Column\StarRatingParams|\PChouse\Tabulator\Column\TrafficParams|\PChouse\Tabulator\Undefined|\PChouse\Tabulator\Column\ProgressBarParams|\PChouse\Tabulator\Column\LinkParams|null $formatterParams
      *
      * @return ColumnDefinition
      */
     // phpcs:ignore
-    public function setFormatterParams(DateTimeParams|MoneyParams|TickCrossParams|DateTimeDifferenceParams|ImageParams|StarRatingParams|TrafficParams|Undefined|ProgressBarParams|LinkParams|null $formatterParams): ColumnDefinition
+    public function setFormatterParams(DateTimeParams|MoneyParams|TickCrossParams|ToggleParams|DateTimeDifferenceParams|ImageParams|StarRatingParams|TrafficParams|Undefined|ProgressBarParams|LinkParams|null $formatterParams): ColumnDefinition
     {
         $this->formatterParams = $formatterParams;
         return $this;
