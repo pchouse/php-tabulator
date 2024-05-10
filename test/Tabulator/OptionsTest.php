@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace PChouse\Tabulator;
 
 use PChouse\Resources\Tabulator;
+use PChouse\Resources\TabulatorIndexNamed;
 use PChouse\Tabulator\Cache\Cache;
 use PChouse\Tabulator\Column\ColumnDefinition;
 use PChouse\Tabulator\Column\ColumnDefinitionAlign;
@@ -16,6 +17,7 @@ use PChouse\Tabulator\Column\TickCrossParams;
 use PChouse\Tabulator\Config\Config;
 use PChouse\Tabulator\Sorter\SortDirection;
 use PChouse\Tabulator\Sorter\Sorter;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class OptionsTest extends TestCase
@@ -117,16 +119,16 @@ class OptionsTest extends TestCase
 
         $options->setInitialSort(
             [
-            (new Sorter(SortDirection::ASC))->setColumn("column1"),
-            (new Sorter(SortDirection::DESC))->setColumn("column2"),
-            (new Sorter())->setColumn("column3"),
+                (new Sorter(SortDirection::ASC))->setColumn("column1"),
+                (new Sorter(SortDirection::DESC))->setColumn("column2"),
+                (new Sorter())->setColumn("column3"),
             ]
         );
 
         $column1 = new ColumnDefinition(
-            title: "Column One",
-            field: "column1",
-            hozAlign: ColumnDefinitionAlign::CENTER,
+            title    : "Column One",
+            field    : "column1",
+            hozAlign : ColumnDefinitionAlign::CENTER,
             formatter: Formatter::TICK_CROSS
         );
 
@@ -143,9 +145,9 @@ class OptionsTest extends TestCase
         );
 
         $column2 = new ColumnDefinition(
-            title: "Column Two",
-            field: "column2",
-            hozAlign: ColumnDefinitionAlign::RIGHT,
+            title    : "Column Two",
+            field    : "column2",
+            hozAlign : ColumnDefinitionAlign::RIGHT,
             formatter: Formatter::MONEY
         );
 
@@ -162,9 +164,9 @@ class OptionsTest extends TestCase
         );
 
         $column3 = new ColumnDefinition(
-            title: "Column Three",
-            field: "column3",
-            hozAlign: ColumnDefinitionAlign::LEFT,
+            title    : "Column Three",
+            field    : "column3",
+            hozAlign : ColumnDefinitionAlign::LEFT,
             formatter: Formatter::COLOR
         );
 
@@ -174,7 +176,7 @@ class OptionsTest extends TestCase
 
         $options->setColumns(
             [
-            $column1, $column2, $column3
+                $column1, $column2, $column3
             ]
         );
 
@@ -285,17 +287,17 @@ class OptionsTest extends TestCase
 
         $options->setInitialSort(
             [
-            (new Sorter(SortDirection::ASC))->setColumn("column1"),
-            (new Sorter(SortDirection::DESC))->setColumn("column2"),
-            (new Sorter())->setColumn("column3"),
+                (new Sorter(SortDirection::ASC))->setColumn("column1"),
+                (new Sorter(SortDirection::DESC))->setColumn("column2"),
+                (new Sorter())->setColumn("column3"),
             ]
         );
 
         $column1 = new ColumnDefinition(
-            title: "Column One",
-            field: "column1",
-            position: 3,
-            hozAlign: ColumnDefinitionAlign::CENTER,
+            title    : "Column One",
+            field    : "column1",
+            position : 3,
+            hozAlign : ColumnDefinitionAlign::CENTER,
             formatter: Formatter::TICK_CROSS
         );
 
@@ -312,10 +314,10 @@ class OptionsTest extends TestCase
         );
 
         $column2 = new ColumnDefinition(
-            title: "Column Two",
-            field: "column2",
-            position: 2,
-            hozAlign: ColumnDefinitionAlign::RIGHT,
+            title    : "Column Two",
+            field    : "column2",
+            position : 2,
+            hozAlign : ColumnDefinitionAlign::RIGHT,
             formatter: Formatter::MONEY
         );
 
@@ -332,10 +334,10 @@ class OptionsTest extends TestCase
         );
 
         $column3 = new ColumnDefinition(
-            title: "Column Three",
-            field: "column3",
-            position: 1,
-            hozAlign: ColumnDefinitionAlign::LEFT,
+            title    : "Column Three",
+            field    : "column3",
+            position : 1,
+            hozAlign : ColumnDefinitionAlign::LEFT,
             formatter: Formatter::COLOR
         );
 
@@ -345,7 +347,7 @@ class OptionsTest extends TestCase
 
         $options->setColumns(
             [
-            $column1, $column2, $column3
+                $column1, $column2, $column3
             ]
         );
 
@@ -397,10 +399,10 @@ class OptionsTest extends TestCase
         );
 
         $column1 = new ColumnDefinition(
-            title: "Column",
-            field: "A",
-            position: 3,
-            hozAlign: ColumnDefinitionAlign::CENTER,
+            title    : "Column",
+            field    : "A",
+            position : 3,
+            hozAlign : ColumnDefinitionAlign::CENTER,
             formatter: Formatter::TICK_CROSS
         );
 
@@ -417,10 +419,10 @@ class OptionsTest extends TestCase
         );
 
         $column2 = new ColumnDefinition(
-            title: "Column Two",
-            field: "B",
-            position: 2,
-            hozAlign: ColumnDefinitionAlign::RIGHT,
+            title    : "Column Two",
+            field    : "B",
+            position : 2,
+            hozAlign : ColumnDefinitionAlign::RIGHT,
             formatter: Formatter::MONEY
         );
 
@@ -437,10 +439,10 @@ class OptionsTest extends TestCase
         );
 
         $column3 = new ColumnDefinition(
-            title: "Column",
-            field: "C",
-            position: 1,
-            hozAlign: ColumnDefinitionAlign::LEFT,
+            title    : "Column",
+            field    : "C",
+            position : 1,
+            hozAlign : ColumnDefinitionAlign::LEFT,
             formatter: Formatter::COLOR
         );
 
@@ -486,5 +488,37 @@ class OptionsTest extends TestCase
                 $this->assertEquals("A", $column->getField());
             }
         }
+    }
+
+    /**
+     * @return void
+     * @throws \PChouse\Tabulator\TabulatorParserException
+     */
+    #[Test]
+    public function testIndex()
+    {
+
+        $options = Options::parse(
+            new \ReflectionClass(Tabulator::class),
+            null
+        );
+
+        $this->assertEquals("id", $options->getIndex());
+    }
+
+    /**
+     * @return void
+     * @throws \PChouse\Tabulator\TabulatorParserException
+     */
+    #[Test]
+    public function testIndexNamed()
+    {
+
+        $options = Options::parse(
+            new \ReflectionClass(TabulatorIndexNamed::class),
+            null
+        );
+
+        $this->assertEquals("ID-PROP", $options->getIndex());
     }
 }

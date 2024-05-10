@@ -1788,7 +1788,9 @@ class Options extends OptionsJson
                 if ($index !== null) {
                     throw new TabulatorParserException("More than one filed marked as index");
                 }
-                $this->setIndex($property->getName());
+                /** @var \PChouse\Tabulator\Index $indexAttribute */
+                $indexAttribute = $indexAttributes[0]->newInstance();
+                $this->setIndex($indexAttribute->getName() ?? $property->getName());
                 $index = $this->getIndex();
             }
 
