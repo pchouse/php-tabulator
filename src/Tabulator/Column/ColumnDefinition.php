@@ -21,7 +21,7 @@ class ColumnDefinition extends ABase
     /**
      * The column position in the table
      *
-     * @var int|null
+     * @var int<1, max>|null
      */
     #[NoExport]
     private int|null $position = null;
@@ -53,7 +53,7 @@ class ColumnDefinition extends ABase
      *
      * @param string $title                                                                                    Required This is the title that will be displayed in the header for this column.
      * @param string|\PChouse\Tabulator\Undefined|null $field                                                  Required (not required in icon/button columns) this is the key for this column in the data array.
-     * @param int|null $position                                                                               The column position in the table
+     * @param int<1, max>|null $position                                                                       The column position in the table
      * @param bool|\PChouse\Tabulator\Undefined|null $visible                                                  Determines if the column is visible.
      * @param int|\PChouse\Tabulator\Undefined|null $width                                                     sets the width of this column, this can be set in pixels or as a percentage of total table width (if not set the system will determine the best)
      * @param \PChouse\Tabulator\Column\ColumnDefinitionAlign|\PChouse\Tabulator\Undefined|null $hozAlign      If you want to set the horizontal alignment on a column by column basis
@@ -141,7 +141,7 @@ class ColumnDefinition extends ABase
     }
 
     /**
-     * @return int|null
+     * @return int<1, max>|null
      */
     public function getPosition(): ?int
     {
@@ -149,13 +149,14 @@ class ColumnDefinition extends ABase
     }
 
     /**
-     * @param int|null $position
+     * @param int<1, max>|null $position
      *
      * @return ColumnDefinition
      * @throws \PChouse\Tabulator\Column\ColumnDefinitionException
      */
     public function setPosition(?int $position): ColumnDefinition
     {
+        // @phpstan-ignore-next-line
         if ($position !== null && $position < 1) {
             throw new ColumnDefinitionException("Column position cannot be less than one");
         }

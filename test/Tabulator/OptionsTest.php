@@ -497,7 +497,7 @@ class OptionsTest extends TestCase
     #[Test]
     public function testIndex()
     {
-
+        /** @var \PChouse\Tabulator\Options $options */
         $options = Options::parse(
             new \ReflectionClass(Tabulator::class),
             null
@@ -519,6 +519,7 @@ class OptionsTest extends TestCase
             null
         );
 
+        /** @var \PChouse\Tabulator\Options $options */
         $this->assertEquals("ID-PROP", $options->getIndex());
     }
 }
